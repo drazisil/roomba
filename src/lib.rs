@@ -1,24 +1,11 @@
+mod implode;
+use implode::{implode};
 use nodejs_sys::{
-    napi_callback_info, napi_create_function, napi_create_int32, napi_create_string_utf8, napi_env, napi_get_cb_info, napi_get_value_double, napi_set_named_property, napi_value,
+    napi_callback_info, napi_create_function, napi_create_string_utf8, napi_env, napi_get_cb_info, napi_get_value_double, napi_set_named_property, napi_value,
 };
 use std::ffi::CString;
 
-pub unsafe extern "C" fn implode(env: napi_env, _info: napi_callback_info) -> napi_value {
-    #[allow(non_snake_case)]
-    // The longest allowed repetition
-    let MAX_REP_LENGTH = 0x204;      
-    
-    
-    let mut local: napi_value = std::mem::zeroed();
 
-    napi_create_int32(
-        env,
-        MAX_REP_LENGTH,
-        &mut local
-    );
-
-    local
-}
 
 pub unsafe extern "C" fn say_hello(env: napi_env, info: napi_callback_info) -> napi_value {
 // creating a buffer where napi_value of argument be written
